@@ -1,6 +1,6 @@
 # TraDiffusion
 
-The repo is for the paper [TraDiffusion: Trajectory-Based Training-Free Image Generation].
+The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Generation.
 
 ## Environment Setup
 
