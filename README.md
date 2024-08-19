@@ -22,6 +22,7 @@ We also provide a gradio project that you can quickly use with the following com
 python inference_gradio.py 
 ```
 Here we provide an example of using a Gradio program.
+
 <video width="320" height="240" controls>
     <source src="./example.mp4" type="video/mp4">
     Your browser does not support the video tag.
