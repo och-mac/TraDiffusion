@@ -1,22 +1,20 @@
 import torch
-from omegaconf import OmegaConf
 from transformers import CLIPTextModel, CLIPTokenizer
 from diffusers import AutoencoderKL, LMSDiscreteScheduler
 from my_model import unet_2d_condition
-from torch.nn import functional as F
 import json
 from PIL import Image
-from utils import Pharse2idx_tokenizer, setup_logger,compute_ca_loss_masks,concat_images,get_points_masks
+from utils import Pharse2idx_tokenizer, setup_logger,compute_ca_loss_masks,concat_images,masks_to_distances_matrixs,points_to_masks
 import hydra
 import os
 from tqdm import tqdm
 import numpy as np
 import random
-import cv2
 
 
 
-def inference(device, unet, vae, tokenizer, text_encoder, prompt, points, phrases, cfg, logger,mr =10):
+
+def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases, cfg, logger,mr =10):
 
     logger.info("Inference")
     logger.info(f"Prompt: {prompt}")
@@ -55,7 +53,7 @@ def inference(device, unet, vae, tokenizer, text_encoder, prompt, points, phrase
 
     latents = latents * noise_scheduler.init_noise_sigma
 
-    object_masks = get_points_masks(points)
+    object_masks = masks_to_distances_matrixs(masks)
 
 
     #初始化结束
@@ -147,23 +145,15 @@ def main(cfg):
     if not os.path.exists(cfg.general.save_path):
         os.makedirs(cfg.general.save_path)
     logger = setup_logger(cfg.general.save_path, __name__)
-
     logger.info(cfg)
-    # Save cfg
-    logger.info("save config to {}".format(os.path.join(cfg.general.save_path, 'config.yaml')))
-    OmegaConf.save(cfg, os.path.join(cfg.general.save_path, 'config.yaml'))
-
+    masks = points_to_masks(examples['points'])
+    
     # Inference
-    pil_images = inference(device, unet, vae, tokenizer, text_encoder, examples['prompt'], examples['points'], examples['phrases'], cfg, logger,mr=100)
-    
-    for i,image in enumerate(pil_images):
-        image.save(os.path.join(cfg.general.save_path,"{}.jpg".format(i)))
-    
- 
+    pil_images = inference(device, unet, vae, tokenizer, text_encoder, examples['prompt'],masks, examples['phrases'], cfg, logger,mr=100)
+
     horizontal_concatenated  = concat_images(pil_images)
   
-
-    image_path = os.path.join(cfg.general.save_path, 'example_{}.png'.format(0))
+    image_path = os.path.join(cfg.general.save_path, 'output.png')
     logger.info('save example image to {}'.format(image_path))
     horizontal_concatenated.save(image_path)
 if __name__ == "__main__":

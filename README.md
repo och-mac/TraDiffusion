@@ -1,3 +1,7 @@
+# TraDiffusion
+
+The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Generation.
+
 ## Environment Setup
 
 You can easily set up a environment according to the following command:
