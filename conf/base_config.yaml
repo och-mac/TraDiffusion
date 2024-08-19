@@ -1,6 +1,6 @@
 general:
   save_path:  './example_output'
-  model_path: '/home/hoc/disk/models/stable-diffusion-v1-5'
+  model_path: 'runwayml/stable-diffusion-v1-5'
   unet_config: './conf/unet/config.json'
 
 inference:
