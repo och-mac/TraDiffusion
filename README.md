@@ -23,9 +23,4 @@ python inference_gradio.py
 ```
 Here we provide an example of using a Gradio program.
 
-<<<<<<< HEAD
 ![example](./example.gif)
-=======
-"https://github.com/och-mac/TraDiffusion/blob/master/example.mp4"
-
->>>>>>> 1bdd5db6b2104430dce45cf47b3e7fb55d41d228
