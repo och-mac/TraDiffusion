@@ -16,7 +16,7 @@ colors = [
             (0,0,255)
         ]
 
-def concat_images(images,prompt = None,filename = None):
+def concat_images(images,prompt = None):
     w = h = 0
     for image in images:
         w+=image.width
@@ -29,10 +29,15 @@ def concat_images(images,prompt = None,filename = None):
     for image in images:
         horizontal_concatenated.paste(image, (width, padding))
         width+=image.width
+    
+    draw = ImageDraw.Draw(horizontal_concatenated)
+    font = ImageFont.truetype('./ArialBold.ttf', 30)
+    if prompt is not None:
+        draw.text((45, 45), prompt, font=font, fill=(0,0,0))
     return horizontal_concatenated
 
 
-def compute_ca_loss_masks(attn_maps_mid, attn_maps_up,dis_matrixs,object_positions,move_rate = 10):
+def compute_ca_loss_masks(attn_maps_mid, attn_maps_up,dis_matrixs,object_positions,move_rate):
     loss = 0
     object_number = len(object_positions)
     if object_number == 0:
@@ -141,12 +146,11 @@ def setup_logger(save_path, logger_name):
 def points_to_masks(points,res=512):
     masks = []
     for i,point in enumerate(points):
-        mask = np.ones((res, res), dtype=np.uint8)
-
+        mask = np.zeros((res, res), dtype=np.uint8)
         for j in range(len(point) - 1):
             point_1 = (int(point[j][0]*512),int(point[j][1]*512))
             point_2 = (int(point[j+1][0]*512),int(point[j+1][1]*512))
-            cv2.line(mask, point_1, point_2, 0, 1)
+            cv2.line(mask, point_1, point_2, 1, 1)
         masks.append(mask)
     return masks
 
@@ -160,3 +164,14 @@ def masks_to_distances_matrixs(masks):
 
 
  
+def draw_traces(pil_img, masks, phrases):
+    draw = ImageDraw.Draw(pil_img)
+    font = ImageFont.truetype('./ArialBold.ttf', 25)
+    phrases = [x.strip() for x in phrases.split(';')]
+    for i,(mask, phrase) in enumerate(zip(masks, phrases)):
+        indices = np.where(mask == 1)
+        for y,x in zip(indices[0],indices[1]):
+            pil_img.putpixel((x, y), colors[i]) 
+        
+        draw.text((x + 5, y + 5), phrase, font=font, fill=(255, 0, 0))
+    return pil_img

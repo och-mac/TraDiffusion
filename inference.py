@@ -4,7 +4,7 @@ from diffusers import AutoencoderKL, LMSDiscreteScheduler
 from my_model import unet_2d_condition
 import json
 from PIL import Image
-from utils import Pharse2idx_tokenizer, setup_logger,compute_ca_loss_masks,concat_images,masks_to_distances_matrixs,points_to_masks
+from utils import Pharse2idx_tokenizer, setup_logger,compute_ca_loss_masks,masks_to_distances_matrixs,points_to_masks,draw_traces
 import hydra
 import os
 from tqdm import tqdm
@@ -14,7 +14,7 @@ import random
 
 
 
-def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases, cfg, logger,mr =10):
+def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases, cfg, logger):
 
     logger.info("Inference")
     logger.info(f"Prompt: {prompt}")
@@ -71,7 +71,7 @@ def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases
         
             # update latents with guidance
             loss = compute_ca_loss_masks(attn_map_integrated_mid, attn_map_integrated_up, object_masks,
-                                   object_positions,mr) * cfg.inference.loss_scale
+                                   object_positions,cfg.inference.move_rate) * cfg.inference.loss_scale
 
             grad_cond = torch.autograd.grad(loss.requires_grad_(True), [latents])[0]
 
@@ -149,12 +149,12 @@ def main(cfg):
     masks = points_to_masks(examples['points'])
     
     # Inference
-    pil_images = inference(device, unet, vae, tokenizer, text_encoder, examples['prompt'],masks, examples['phrases'], cfg, logger,mr=100)
+    pil_images = inference(device, unet, vae, tokenizer, text_encoder, examples['prompt'],masks, examples['phrases'], cfg, logger)
+    pil_images.append(draw_traces(pil_images[0].copy(),masks, examples['phrases']))
 
-    horizontal_concatenated  = concat_images(pil_images)
-  
-    image_path = os.path.join(cfg.general.save_path, 'output.png')
-    logger.info('save example image to {}'.format(image_path))
-    horizontal_concatenated.save(image_path)
+    for i,img in enumerate(pil_images):
+        image_path = os.path.join(cfg.general.save_path, 'example_{}.png'.format(i))
+        img.save(image_path)
+
 if __name__ == "__main__":
     main()

@@ -12,7 +12,7 @@ from gradio.components.image_editor import Brush
 import gradio as gr
 import datetime
 from inference import inference
-from utils import concat_images,setup_logger,colors
+from utils import concat_images,setup_logger,colors,draw_traces
 import cv2
 
 def setup_seed(seed):
@@ -76,9 +76,11 @@ def main(cfg):
 
         logger.info(cfg)
         pil_images = inference(device, unet, vae, tokenizer, text_encoder, examples['prompt'], maps, examples['phrases'], cfg, logger)
+        pil_images.append(draw_traces(pil_images[0].copy(),maps, examples['phrases']))
 
-        for i,image in enumerate(pil_images):
-            image.save(os.path.join(cfg.general.save_path, 'output_{}.png'.format(i)))
+        for i,img in enumerate(pil_images):
+            image_path = os.path.join(cfg.general.save_path, 'example_{}.png'.format(i))
+            img.save(image_path)
             
         horizontal_concatenated = concat_images(pil_images, examples['prompt'])
 
