@@ -1,0 +1,14 @@
+[2024-06-24 12:37:00,663][httpx][INFO] - HTTP Request: GET http://127.0.0.1:7863/startup-events "HTTP/1.1 200 OK"
+[2024-06-24 12:37:00,699][httpx][INFO] - HTTP Request: HEAD http://127.0.0.1:7863/ "HTTP/1.1 200 OK"
+[2024-06-24 12:37:00,856][httpx][INFO] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+[2024-06-24 12:37:01,062][httpx][INFO] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+[2024-06-24 12:37:01,307][httpx][INFO] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+[2024-06-24 12:37:01,786][httpx][INFO] - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+[2024-06-24 12:37:01,925][httpx][INFO] - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+[2024-06-24 12:37:28,268][__main__][INFO] - {'general': {'save_path': './traces_output2024-06-24 12:37:28.100506', 'model_path': '/home/hoc/disk/models/stable-diffusion-v1-5', 'unet_config': './conf/unet/config.json', 'clip_path': '/home/hoc/disk/models/clip-vit-large-patch14'}, 'inference': {'loss_scale': 30, 'batch_size': 1, 'loss_threshold': 0.2, 'max_iter': 5, 'max_index_step': 10, 'timesteps': 51, 'classifier_free_guidance': 7.5, 'rand_seed': 450, 'mask_select_step': 10}, 'noise_schedule': {'beta_start': 0.00085, 'beta_end': 0.012, 'beta_schedule': 'scaled_linear', 'num_train_timesteps': 1000}}
+[2024-06-24 12:37:28,269][__main__][INFO] - save config to ./traces_output2024-06-24 12:37:28.100506/config.yaml
+[2024-06-24 12:37:28,271][__main__][INFO] - Inference
+[2024-06-24 12:37:28,271][__main__][INFO] - Prompt: A person walking down the street with an umbrella over their head.
+[2024-06-24 12:37:28,271][__main__][INFO] - Phrases: person
+[2024-06-24 12:37:28,271][__main__][INFO] - Conver Phrases to Object Positions
+[2024-06-24 12:37:49,570][__main__][INFO] - Decode Image...

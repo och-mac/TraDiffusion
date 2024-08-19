@@ -1,0 +1,20 @@
+general:
+  save_path: ./example_output
+  model_path: /home/hoc/disk/models/stable-diffusion-v1-5
+  unet_config: ./conf/unet/config.json
+  clip_path: /home/hoc/disk/models/clip-vit-large-patch14
+inference:
+  loss_scale: 30
+  batch_size: 1
+  loss_threshold: 0.2
+  max_iter: 5
+  max_index_step: 10
+  timesteps: 51
+  classifier_free_guidance: 7.5
+  rand_seed: 450
+  mask_select_step: 10
+noise_schedule:
+  beta_start: 0.00085
+  beta_end: 0.012
+  beta_schedule: scaled_linear
+  num_train_timesteps: 1000
