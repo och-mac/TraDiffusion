@@ -23,7 +23,4 @@ python inference_gradio.py
 ```
 Here we provide an example of using a Gradio program.
 
-<video width="320" height="240" controls>
-    <source src="https://github.com/och-mac/TraDiffusion/blob/master/example.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+![example](./example.gif)
