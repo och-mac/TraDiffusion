@@ -2,14 +2,18 @@
 
 The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Generation.We also provide a [Quick Start guide](#quick-start) and a [Gradio demo](#gradio-demo) to help you quickly get started with this project.
 
-![](./docs/intro.png)
 
-We present TraDiffusion, a training-free, trajectory-based controllable Text-to-Image (T2I) method. Unlike traditional box- or mask-based approaches, TraDiffusion allows users to guide image generation with mouse trajectories. It utilizes the Distance Awareness energy function to focus generation within the defined trajectory. Our comparisons with traditional methods show that TraDiffusion offers simpler and more natural control. Additionally, it effectively manipulates salient regions, attributes, and relationships within generated images using arbitrary or enhanced trajectories. 
+<p align="center">
+  <img src="docs/images/intro.png" width=90% height=auto>
+</p>
+
+
+We present TraDiffusion, a training-free, trajectory-based controllable Text-to-Image (T2I) method. Unlike traditional box- or mask-based approaches, TraDiffusion allows users to guide image generation with mouse trajectories. It utilizes the Distance Awareness energy function to focus generation within the defined trajectory. Our comparisons with traditional methods show that TraDiffusion offers simpler and more natural control. Additionally, it effectively manipulates salient regions, attributes, and relationships within generated images using arbitrary or enhanced trajectories. For more visual examples, please check [here]().
 
 ## Model Overview
 
 <p align="center">
-  <img src="docs/archi.png" width=40% height=auto>
+  <img src="docs/images/archi.png" width=40% height=auto>
 </p>
 
 
@@ -42,7 +46,7 @@ python inference_gradio.py
 ```
 Here we provide an example of using a Gradio program.
 
-![example](./docs/example.gif)
+![](./docs/images/example.gif)
 
 ## Citation
 If you find our work inspiring or use our codebase in your research, please consider giving a star ⭐ and a citation.
