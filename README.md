@@ -4,13 +4,18 @@ The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Gen
 
 ![](./docs/intro.png)
 
-We introduce a training-free, trajectory-based controllable Text-to-Image (T2I) approach called TraDiffusion. This novel method allows users to effortlessly guide image generation using mouse trajectories, in contrast to traditional methods that rely on boxes or masks. TraDiffusion leverages the Distance Awareness energy function, effectively guiding latent variables to ensure that the generation is concentrated within the areas defined by the trajectory. We also compare TraDiffusion with traditional box-conditioned and mask-conditioned methods. The results demonstrate that TraDiffusion enables simpler, more natural image control. Additionally, we showcase its ability to manipulate salient regions, attributes, and relationships within the generated images, based on arbitrary or enhanced trajectories.
+We present TraDiffusion, a training-free, trajectory-based controllable Text-to-Image (T2I) method. Unlike traditional box- or mask-based approaches, TraDiffusion allows users to guide image generation with mouse trajectories. It utilizes the Distance Awareness energy function to focus generation within the defined trajectory. Our comparisons with traditional methods show that TraDiffusion offers simpler and more natural control. Additionally, it effectively manipulates salient regions, attributes, and relationships within generated images using arbitrary or enhanced trajectories. 
 
 ## Model Overview
-![](./docs/model-overview.png)
+
+<p align="center">
+  <img src="docs/archi.png" width=40% height=auto>
+</p>
+
+
 TraDiffusion uses a pretrained diffusion model and implements a Distance Awareness energy function combined with trajectories to achieve training-free layout control.
 
-Please check our [paper]() for more details.
+Please check our [paper](https://arxiv.org/abs/2408.09739) for more details.
 
 ## Quick Start 
 
@@ -39,4 +44,17 @@ Here we provide an example of using a Gradio program.
 
 ![example](./docs/example.gif)
 
-## 
+## Citation
+If you find our work inspiring or use our codebase in your research, please consider giving a star ⭐ and a citation.
+
+```
+@misc{wu2024tradiffusiontrajectorybasedtrainingfreeimage,
+      title={TraDiffusion: Trajectory-Based Training-Free Image Generation}, 
+      author={Mingrui Wu and Oucheng Huang and Jiayi Ji and Jiale Li and Xinyue Cai and Huafeng Kuang and Jianzhuang Liu and Xiaoshuai Sun and Rongrong Ji},
+      year={2024},
+      eprint={2408.09739},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.09739}, 
+}
+```
