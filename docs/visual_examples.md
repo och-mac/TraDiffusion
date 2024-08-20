@@ -45,7 +45,7 @@ Examples of controlling the visual input.
 Examples with different random seeds. Our method can reliably achieve control over the targ
 
 <p align="center">
-  <img src="images/seed.png" width=40% height=auto>
+  <img src="images/seed.png" width=70% height=auto>
 </p>
 
 ## Comparisons With Other Models
@@ -53,24 +53,24 @@ Examples with different random seeds. Our method can reliably achieve control ov
 Qualitative comparison with prior mask-based and box-based layout control works. The controlled targets are colored with green and orange. The mask-based and box-based layout control methods generate the unnatural images due to the control conditions that are too fine or too coarse. However, our simple trajectory-based approach yields more natural results.
 
 <p align="center">
-  <img src="images/vis1.png" width=40% height=auto>
+  <img src="images/vis1.png" width=90% height=auto>
 </p>
 
 
 <p align="center">
-  <img src="images/vis2.png" width=40% height=auto>
+  <img src="images/vis2.png" width=90% height=auto>
 </p>
 
 Comparing with ControlNet Scribble(middle and right). We observe that ControlNet with scribble essentially remainsa mask-based method, as it cannot be effectively controlled using overly simplistic scribbl
 
 <p align="center">
-  <img src="images/ctrlnet.png" width=40% height=auto>
+  <img src="images/ctrlnet.png" width=70% height=auto>
 </p>
 
 Comparing with InstanceDiffusion Scribble (right). We observe that InstanceDiffusion with scribble essentially re-mains a point-based method, it fails to align the generated targets with the provided scribble poi
 
 <p align="center">
-  <img src="images/insdiff.png" width=40% height=auto>
+  <img src="images/insdiff.png" width=70% height=auto>
 </p>
 
 Comparing with pretrained Stable Diffusion model. Our method can guide Stable Diffusion model to generate multiple targets, despite the inherent limitations of the Stable Diffusion model in this regard
