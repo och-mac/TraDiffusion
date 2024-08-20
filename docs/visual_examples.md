@@ -2,7 +2,7 @@
 
 This document will showcase additional results of TraDiffusion, including [control over salient area](#control-over-salient-area), [arbitrary trajectory control](#arbitrary-trajectory-control), [target attribute and relationship control](#target-attribute-and-relationship-control), [additional visual input control](#additional-visual-input-control), [control with different random seeds](#comparisons-with-other-models), and [comparisons with other models](#comparisons-with-other-models).
 
-Please check our [paper](https://arxiv.org/abs/2408.09739) for ablation study and more details.
+Please check our 🔥[paper](https://arxiv.org/abs/2408.09739) for ablation study and more details.
 
 ## Control Over Salient Area
 
