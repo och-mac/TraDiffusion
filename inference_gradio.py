@@ -51,7 +51,6 @@ def main(cfg):
         maps = []
         pil = Image.new('RGB', (512, 512), color=(167, 179, 195))
         for i in range(len(colors)):
-            # 找到所有有色元素的索引
             non_zero_indices = np.where(np.all(img_np == colors[i], axis=-1))
             if non_zero_indices[0].size == 0:
                 continue
@@ -64,11 +63,12 @@ def main(cfg):
 
         pil.save(os.path.join(cfg.general.save_path,"traces.jpg"))
 
-        # 对 img_prompt 的所有值都除以 512
+        # Prepare examples
         examples = {"prompt": prompt,
                     "phrases": phrase,
                     'save_path': cfg.general.save_path
                     }
+        
         # Prepare the save path
         if not os.path.exists(cfg.general.save_path):
             os.makedirs(cfg.general.save_path)
@@ -86,7 +86,6 @@ def main(cfg):
 
         return horizontal_concatenated
 
-    # 创建一个256x256的纯白图像
     white_image_np = np.zeros((512,512, 3), dtype=np.uint8)*255
 
     iface = gr.Interface(
@@ -99,8 +98,8 @@ def main(cfg):
                 type='numpy',
                 brush=Brush(colors=[
                     "#90EE90",
-                    "#FFA500",  # 橙色
-                    "#FF7F50",  # 珊瑚色
+                    "#FFA500",  
+                    "#FF7F50",  
                     "#FF0000",
                     "#0000FF"
                 ], color_mode="selecte",    

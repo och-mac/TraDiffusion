@@ -22,7 +22,6 @@ def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases
 
 
     # Get Object Positions
-    # 获取prompt 的下标
     logger.info("Conver Phrases to Object Positions")
 
     # Encode Classifier Embeddings
@@ -44,8 +43,7 @@ def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases
         generator=generator,
     ).to(device)
 
-    #生成一个随机潜在特征
-
+    #Generate a random latent feature
     noise_scheduler = LMSDiscreteScheduler(beta_start=cfg.noise_schedule.beta_start, beta_end=cfg.noise_schedule.beta_end,
                                            beta_schedule=cfg.noise_schedule.beta_schedule, num_train_timesteps=cfg.noise_schedule.num_train_timesteps)
 
@@ -56,7 +54,7 @@ def inference(device, unet, vae, tokenizer, text_encoder, prompt, masks, phrases
     object_masks = masks_to_distances_matrixs(masks)
 
 
-    #初始化结束
+    #Initialization complete
     loss = torch.tensor(10000)
 
     for index, t in enumerate(tqdm(noise_scheduler.timesteps)):
