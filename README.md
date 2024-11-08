@@ -8,7 +8,7 @@ The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Gen
 </p>
 
 
-We present TraDiffusion, a training-free, trajectory-based controllable Text-to-Image (T2I) method. Unlike traditional box- or mask-based approaches, TraDiffusion allows users to guide image generation with mouse trajectories. It utilizes the Distance Awareness energy function to focus generation within the defined trajectory. Our comparisons with traditional methods show that TraDiffusion offers simpler and more natural control. Additionally, it effectively manipulates salient regions, attributes, and relationships within generated images using arbitrary or enhanced trajectories. For more visual examples, please check 🔥[here](https://github.com/och-mac/TraDiffusion/blob/master/docs/visual_examples.md).
+We present TraDiffusion, a training-free, trajectory-based controllable Text-to-Image (T2I) method. Unlike traditional box- or mask-based approaches, TraDiffusion allows users to guide image generation with mouse trajectories. It utilizes the Distance Awareness energy function to focus generation within the defined trajectory. Our comparisons with traditional methods show that TraDiffusion offers simpler and more natural control. Additionally, it effectively manipulates salient regions, attributes, and relationships within generated images using arbitrary or enhanced trajectories.
 
 ## Model Overview
 
@@ -47,6 +47,8 @@ python inference_gradio.py
 Here we provide an example of using a Gradio program.
 
 ![](./docs/images/example.gif)
+
+# For more visual examples, please check 🔥[here](https://github.com/och-mac/TraDiffusion/blob/master/docs/visual_examples.md).
 
 ## Citation
 If you find our work inspiring or use our codebase in your research, please consider giving a star ⭐ and a citation.

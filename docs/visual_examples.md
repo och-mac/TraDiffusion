@@ -79,5 +79,10 @@ Comparing with pretrained Stable Diffusion model. Our method can guide Stable Di
   <img src="images/sd_fail.png" width=40% height=auto>
 </p>
 
+## The Situation of Trajectory Overlap
 
+Examples of trajectory overlap situations.
 
+<p align="center">
+  <img src="images/overlap.png" width=60% height=auto>
+</p>
