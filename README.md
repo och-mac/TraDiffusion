@@ -2,6 +2,9 @@
 
 The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Generation.We also provide a [Quick Start guide](#quick-start) and a [Gradio demo](#gradio-demo) to help you quickly get started with this project.
 
+<big><strong>For more visual examples, please check 🔥[here](https://github.com/och-mac/TraDiffusion/blob/master/docs/visual_examples.md) </strong></big>
+
+<big><strong>Please check our 🔥[paper](https://arxiv.org/abs/2408.09739) for more details.</strong></big>
 
 <p align="center">
   <img src="docs/images/intro.png" width=90% height=auto>
@@ -18,8 +21,6 @@ We present TraDiffusion, a training-free, trajectory-based controllable Text-to-
 
 
 TraDiffusion uses a pretrained diffusion model and implements a Distance Awareness energy function combined with trajectories to achieve training-free layout control.
-
-Please check our 🔥[paper](https://arxiv.org/abs/2408.09739) for more details.
 
 ## Quick Start 
 
@@ -48,7 +49,6 @@ Here we provide an example of using a Gradio program.
 
 ![](./docs/images/example.gif)
 
-# For more visual examples, please check 🔥[here](https://github.com/och-mac/TraDiffusion/blob/master/docs/visual_examples.md).
 
 ## Citation
 If you find our work inspiring or use our codebase in your research, please consider giving a star ⭐ and a citation.
