@@ -19,9 +19,11 @@ Examples of controlling the salient area of the targets with trajectories. We ca
 Examples of controlling the object with arbitrary trajectories. We can adjust the posture of the target (top) or specify the approximate shape of the target (bottom) by varying the given trajectory.
 
 <p align="center">
-  <img src="images/arbit.png" width=40% height=>
+  <img src="images/arbit.png" width=60% height=>
 </p>
 
+### Comparison of Trajectory and Mask Brush
+We use a thicker brush to draw the mask for a fairer time-based comparison with the trajectory condition. However, the results show that the final output is less than ideal. This suggests that using masks as an additional condition requires finer detailing of the target, which not only takes more time but is also less user-friendly compared to trajectory conditions.
 
 ## Target Attribute And Relationship Control
 
