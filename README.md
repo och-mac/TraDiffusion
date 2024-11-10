@@ -2,7 +2,7 @@
 
 The repo is for the paper TraDiffusion: Trajectory-Based Training-Free Image Generation.We also provide a [Quick Start guide](#quick-start) and a [Gradio demo](#gradio-demo) to help you quickly get started with this project.
 
-<big><strong>For more visual examples, please check 🔥[here](https://github.com/och-mac/TraDiffusion/blob/master/docs/visual_examples.md) </strong></big>
+<big><strong>For more visual examples, please check 🔥[here](https://github.com/och-mac/TraDiffusion/blob/master/docs/visual_examples.md) </strong></big>(New examples include overlapping trajectories, mask brushing, and multi-object trajectory control.)
 
 <big><strong>Please check our 🔥[paper](https://arxiv.org/abs/2408.09739) for more details.</strong></big>
 
